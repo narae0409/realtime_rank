@@ -7,18 +7,64 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/rank1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test1"
-        android:textSize="36dp"/>
+        <TextView
+            android:id="@+id/rank1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
 
-    <TextView
-        android:id="@+id/rank2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="test2"
-        android:textSize="36dp"/>
+        <TextView
+            android:id="@+id/rank2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
+
+        <TextView
+            android:id="@+id/rank10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="36dp" />
 
 </LinearLayout>
