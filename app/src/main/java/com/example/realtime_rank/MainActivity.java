@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.io.IOException;
 import java.util.regex.Matcher;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String address = "https://search.naver.com/search.naver?query=";
     String url = "https://trends.google.com/trends/trendingsearches/daily/rss?geo=KR";
     String msg;
+    static String keyword = "initial";
     final Bundle bundle = new Bundle();
     TextView Rank1, textView;
 
@@ -34,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
         Rank1 = (TextView)findViewById(R.id.rank1);
         textView = findViewById(R.id.rank2);
 
-        Rank1.setText("new text");
-        //setText, compile, addLinks.scheme 모두 같은 변수로 통일하여 적용
-        //Rank1은 i로 변경하여 for문으로 반복
+        Rank1.setText(keyword);
 
-        Pattern ptn = Pattern.compile("new");
+        Pattern ptn = Pattern.compile(keyword);
 
         Linkify.TransformFilter transform = new Linkify.TransformFilter() {
             @Override
@@ -47,12 +47,21 @@ public class MainActivity extends AppCompatActivity {
             }
         };
 
-        Linkify.addLinks(Rank1, ptn, address+"test", null, transform);
+        Linkify.addLinks(Rank1, ptn, address+keyword, null, transform);
+        Linkify.addLinks(textView, ptn, address+keyword, null, transform);
 
         Handler handler = new Handler() {
             public void handleMessage(Message msg) {
                 Bundle bundle = msg.getData();
-                textView.setText(bundle.getString("message"));
+                if (bundle == null) {
+                    textView.setText(" null");
+                } else if (bundle != null) {
+                    textView.setText(bundle.getString("message"));
+                    keyword = bundle.getString("message");
+                } else {
+                    textView.setText("error!");
+                }
+
             }
         };
 
@@ -61,17 +70,18 @@ public class MainActivity extends AppCompatActivity {
         new Thread(() -> {
             try {
                 Document doc = Jsoup.connect(url).get();
-                Element elements = doc.select("item title").first();
-                msg = elements.text(); // error occurred from Document to element.
-                //msg = "sample";
+                Elements elements = doc.select("title");
+                Element ele = elements.get(3);
+                msg = ele.text();
                 bundle.putString("message", msg);
                 Message msg = handler.obtainMessage();
                 msg.setData(bundle);
                 handler.sendMessage(msg);
 
+
             } catch (IOException e) {
                 e.printStackTrace();
-                textView.setText("fail2");
+                textView.setText("fail");
             }
 
 
