@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 public class MainActivity extends AppCompatActivity {
 
     String address = "https://search.naver.com/search.naver?query=";
-    String url = "https://trends.google.co.kr/trends/trendingsearches/daily?geo=KR";
+    String url = "https://trends.google.com/trends/trendingsearches/daily/rss?geo=KR";
     String msg;
     final Bundle bundle = new Bundle();
     TextView Rank1, textView;
@@ -57,12 +57,13 @@ public class MainActivity extends AppCompatActivity {
         };
 
 
+
         new Thread(() -> {
-            Document doc = null;
             try {
-                doc = Jsoup.connect(url).get();
-                Element elements = doc.select(".title").first();
-                msg = elements.text();
+                Document doc = Jsoup.connect(url).get();
+                Element elements = doc.select("item title").first();
+                msg = elements.text(); // error occurred from Document to element.
+                //msg = "sample";
                 bundle.putString("message", msg);
                 Message msg = handler.obtainMessage();
                 msg.setData(bundle);
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 e.printStackTrace();
-                textView.setText("fail");
+                textView.setText("fail2");
             }
 
 
