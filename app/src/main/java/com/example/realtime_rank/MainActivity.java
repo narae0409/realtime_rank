@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     String address = "https://search.naver.com/search.naver?query=";
     String url = "https://trends.google.com/trends/trendingsearches/daily/rss?geo=KR";
     String msg;
-    static String keyword = "initial";
+    //String keyword = "initial";
     final Bundle bundle = new Bundle();
     TextView Rank1, Rank2, Rank3, Rank4, Rank5, Rank6, Rank7, Rank8, Rank9, Rank10;
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank1.setText("1. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank1, ptn, address+keyword, null, transform);
                 }
@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank2.setText("2. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank2, ptn, address+keyword, null, transform);
                 }
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank3.setText("3. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank3, ptn, address+keyword, null, transform);
                 }
@@ -176,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank4.setText("4. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank4, ptn, address+keyword, null, transform);
                 }
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank5.setText("5. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank5, ptn, address+keyword, null, transform);
                 }
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank6.setText("6. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank6, ptn, address+keyword, null, transform);
                 }
@@ -294,7 +294,7 @@ public class MainActivity extends AppCompatActivity {
                 else if (bundle != null) {
                     Rank7.setText("7. " + bundle.getString("message"));
                     //Rank7.setText("7. ");
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank7, ptn, address+keyword, null, transform);
                 }
@@ -333,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank8.setText("8. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank8, ptn, address+keyword, null, transform);
                 }
@@ -372,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank9.setText("9. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank9, ptn, address+keyword, null, transform);
                 }
@@ -411,7 +411,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (bundle != null) {
                     Rank10.setText("10. " + bundle.getString("message"));
-                    keyword = bundle.getString("message");
+                    String keyword = bundle.getString("message");
                     Pattern ptn = Pattern.compile(keyword);
                     Linkify.addLinks(Rank10, ptn, address+keyword, null, transform);
                 }
